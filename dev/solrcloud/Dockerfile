@@ -19,6 +19,8 @@ RUN echo "solr soft nproc 65000" >> /etc/security/limits.conf
 ADD zoo.cfg apache-zookeeper-3.5.5-bin/conf/
 RUN mkdir -p /opt/solr/server/logs && chown -R solr:solr /opt/solr/
 RUN echo SOLR_HOME="/data/solr/data" >> /etc/default/solr.in.sh
+ADD run-solrcloud.sh ./run-solrcloud.sh
+RUN chmod 700 run-solrcloud.sh
 
-CMD mkdir -p /data/solr/data && chown -R solr:solr /data/solr && cp /opt/solr/server/solr/solr.xml /data/solr/data/ && sh apache-zookeeper-3.5.5-bin/bin/zkServer.sh start && sleep 5 && chown -R solr:solr /data/solr && sh /etc/init.d/solr start && tail -n 500 -f /var/solr/logs/solr.log
+CMD sh run-solrcloud.sh
 
