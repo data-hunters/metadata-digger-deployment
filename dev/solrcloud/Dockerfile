@@ -17,6 +17,7 @@ RUN echo "solr soft nofile 65000" >> /etc/security/limits.conf
 RUN echo "solr hard nproc 65000" >> /etc/security/limits.conf
 RUN echo "solr soft nproc 65000" >> /etc/security/limits.conf
 ADD zoo.cfg apache-zookeeper-3.5.5-bin/conf/
+ADD solr-conf /opt/solr/md-solr-conf
 RUN mkdir -p /opt/solr/server/logs && chown -R solr:solr /opt/solr/
 RUN echo SOLR_HOME="/data/solr/data" >> /etc/default/solr.in.sh
 ADD run-solrcloud.sh ./run-solrcloud.sh
