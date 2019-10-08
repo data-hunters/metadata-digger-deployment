@@ -2,6 +2,27 @@
 Docker image for Solr Cloud. You can use it for development purposes. All necessary files are under solrcloud directory.
 
 ### Setup
+#### Docker compose
+*Important* If you are running a linux distribution with SELinux enabled you need to add SELinux rule to make it able for docker to write something in sc_data, please read more details [here](http://www.projectatomic.io/blog/2015/06/using-volumes-with-docker-can-cause-problems-with-selinux/)
+```
+chcon -Rt svirt_sandbox_file_t sc_data
+```
+To run Solr Cloud for the first time use the following command:
+
+```
+docker-compose up upload_config
+```
+
+Now go to web browser and open http://localhost:8983, you should see Solr Admin.
+Above command is necessary to upload new Solr config (located in solr-conf directory). Next time you can just run:
+
+```
+docker-compose up solrcloud
+```
+
+Data is stored inside `sc_data` directory
+
+#### Pure docker
 Build image:
 ```
 sudo docker build -t solrcloud .
