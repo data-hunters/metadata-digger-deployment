@@ -10,6 +10,12 @@ Create directory where Solr Cloud and ZooKeepr will store data, e.g.:
 ```
 mkdir sc_data
 ```
+
+*Important* If you are running a linux distribution with SELinux enabled you need to add SELinux rule to make it able for docker to write something in sc_data, please read more details [here](http://www.projectatomic.io/blog/2015/06/using-volumes-with-docker-can-cause-problems-with-selinux/)
+```
+chcon -Rt svirt_sandbox_file_t sc_data
+```
+
 Run container passing absolute path to created directory. Let's assume your absolute path is /home/user1/sc_data. To run Solr Cloud for the first time use the following command:
 ```
 docker run -p 127.0.0.1:8983:8983 -p 127.0.0.1:2181:2181 -v /home/user1/sc_data:/data -it solrcloud sh run-solrcloud.sh upload_config
