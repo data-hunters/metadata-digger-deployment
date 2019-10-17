@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ls -al /opt/solr/ > /data/rr1
-ls -al /opt/solr/md-solr-conf > /data/rr2
 mkdir -p /data/solr/data
 chown -R solr:solr /data/solr
 cp /opt/solr/server/solr/solr.xml /data/solr/data/ 

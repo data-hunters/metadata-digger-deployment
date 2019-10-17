@@ -92,8 +92,8 @@
     <field name="_version_" type="plong" indexed="false" stored="false"/>
 
     <field name="metadata_content" type="text_general" indexed="true" stored="false" />
-    <field name="tags" type="text_general" indexed="true" stored="true" multiValued="true"/>
-    <field name="directories" type="text_general" indexed="true" stored="true" multiValued="true"/>
+    <field name="tags" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="directories" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="base_path" type="descendent_path" indexed="true" stored="true" multiValued="false" />
     <field name="file_path" type="descendent_path" indexed="true" stored="true" multiValued="false" />
     <field name="content_hash" type="string" stored="true" multiValued="false"/>
@@ -108,7 +108,7 @@
        EXAMPLE:  name="*_i" will match any field ending in _i (like myid_i, z_i)
        RESTRICTION: the glob-like pattern in the name attribute must have a "*" only at the start or the end.  -->
 
-    <dynamicField name="md_jpeg*" type="text_general" indexed="true" stored="true"/>
+    <dynamicField name="md_jpeg_*" type="text_general" indexed="true" stored="true"/>
     <dynamicField name="md_exif_ifd0_*" type="text_gen_sort" indexed="true" stored="true"/>
     <dynamicField name="md_exif_subifd_*" type="text_gen_sort" indexed="true" stored="true"/>
     <dynamicField name="md_file_type_*" type="text_gen_sort" indexed="true" stored="true"/>
