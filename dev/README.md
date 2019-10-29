@@ -22,6 +22,12 @@ docker-compose up solrcloud
 
 Data is stored inside `sc_data` directory
 
+To stop everything running, please use
+
+```
+docker-compose stop
+```
+
 #### Pure docker
 Build image:
 ```
