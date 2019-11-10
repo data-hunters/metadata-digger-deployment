@@ -91,13 +91,26 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="_version_" type="plong" indexed="false" stored="false"/>
 
-    <field name="metadata_content" type="text_general" indexed="true" stored="false" />
-    <field name="tags" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="directories" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="base_path" type="descendent_path" indexed="true" stored="true" multiValued="false" />
-    <field name="file_path" type="descendent_path" indexed="true" stored="true" multiValued="false" />
+    <field name="metadata_content" type="text_general" stored="false" />
+    <field name="tags" type="string" stored="true" multiValued="true"/>
+    <field name="directories" type="string" stored="true" multiValued="true"/>
+    <field name="base_path" type="descendent_path" stored="true" multiValued="false" />
+    <field name="file_path" type="descendent_path" stored="true" multiValued="false" />
     <field name="content_hash" type="string" stored="true" multiValued="false"/>
-    <field name="file_type" type="string" stored="true" indexed="true" required="true" />
+    <field name="file_type" type="string" stored="true" required="true" />
+    <field name="processing_datetime" type="rdate" stored="true" required="true"  />
+
+    <field name="md_gps_location" type="location" multiValued="false" stored="true" />
+    <field name="md_gps_datetime" type="rdate" stored="true" />
+    <field name="md_jpeg_image_width" type="pint" stored="true" />
+    <field name="md_jpeg_image_height" type="pint" stored="true" />
+    <field name="md_exif_subifd_exif_image_width" type="pint" stored="true" />
+    <field name="md_exif_subifd_exif_image_height" type="pint" stored="true" />
+    <field name="md_exif_ifd0_datetime" type="rdate" stored="true" />
+    <field name="md_exif_subifd_datetime_original" type="rdate" stored="true" />
+    <field name="md_icc_profile_profile_datetime" type="rdate" stored="true" />
+    <field name="md_gps_gps_satellites" type="pint" stored="true" />
+    
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
@@ -166,6 +179,7 @@
     <!-- KD-tree versions of date fields -->
     <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
     <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+    <fieldType name="rdate" class="solr.DateRangeField" multiValued="false"/>
 
     <!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
     <fieldType name="binary" class="solr.BinaryField"/>
