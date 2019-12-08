@@ -93,15 +93,18 @@
 
     <field name="metadata_content" type="text_general" stored="false" />
     <field name="tags" type="string" stored="true" multiValued="true"/>
-    <field name="directories" type="string" stored="true" multiValued="true"/>
+    <field name="directory_names" type="string" stored="true" multiValued="true"/>
+    <field name="tag_names" type="string" stored="true" multiValued="true"/>
     <field name="base_path" type="descendent_path" stored="true" multiValued="false" />
     <field name="file_path" type="descendent_path" stored="true" multiValued="false" />
     <field name="content_hash" type="string" stored="true" multiValued="false"/>
     <field name="file_type" type="string" stored="true" required="true" />
     <field name="processing_datetime" type="rdate" stored="true" required="true"  />
 
-    <field name="md_gps_location" type="location" multiValued="false" stored="true" />
-    <field name="md_gps_datetime" type="rdate" stored="true" />
+    <field name="md_gps_md_location" type="location" multiValued="false" stored="true" />
+    <field name="md_gps_md_location_long_f" type="pfloat" multiValued="false" stored="true" />
+    <field name="md_gps_md_location_lat_f" type="pfloat" multiValued="false" stored="true" />
+    <field name="md_gps_md_datetime" type="rdate" stored="true" />
     <field name="md_jpeg_image_width" type="pint" stored="true" />
     <field name="md_jpeg_image_height" type="pint" stored="true" />
     <field name="md_exif_subifd_exif_image_width" type="pint" stored="true" />
@@ -121,12 +124,12 @@
        EXAMPLE:  name="*_i" will match any field ending in _i (like myid_i, z_i)
        RESTRICTION: the glob-like pattern in the name attribute must have a "*" only at the start or the end.  -->
 
-    <dynamicField name="md_jpeg_*" type="text_general" indexed="true" stored="true"/>
+    <dynamicField name="md_jpeg_*" type="text_gen_sort" indexed="true" stored="true"/>
     <dynamicField name="md_exif_ifd0_*" type="text_gen_sort" indexed="true" stored="true"/>
     <dynamicField name="md_exif_subifd_*" type="text_gen_sort" indexed="true" stored="true"/>
     <dynamicField name="md_file_type_*" type="text_gen_sort" indexed="true" stored="true"/>
-    <dynamicField name="md_gps_*" type="text_general" indexed="true" stored="true"/>
-    <dynamicField name="md_*" type="text_general" indexed="true" stored="true"/>
+    <dynamicField name="md_gps_*" type="text_gen_sort" indexed="true" stored="true"/>
+    <dynamicField name="md_*" type="text_gen_sort" indexed="true" stored="true"/>
 
     <uniqueKey>id</uniqueKey>
 
