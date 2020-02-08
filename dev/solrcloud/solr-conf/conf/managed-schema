@@ -114,7 +114,14 @@
     <field name="md_exif_subifd_datetime_original" type="rdate" stored="true" />
     <field name="md_icc_profile_profile_datetime" type="rdate" stored="true" />
     <field name="md_gps_gps_satellites" type="pint" stored="true" />
-    
+
+    <field name="hash_crc32" type="string" multiValued="false" stored="true" />
+    <field name="hash_md5" type="string" multiValued="false" stored="true" />
+    <field name="hash_sha1" type="string" multiValued="false" stored="true" />
+    <field name="hash_sha224" type="string" multiValued="false" stored="true" />
+    <field name="hash_sha256" type="string" multiValued="false" stored="true" />
+    <field name="hash_sha384" type="string" multiValued="false" stored="true" />
+    <field name="hash_sha512" type="string" multiValued="false" stored="true" />
 
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
