@@ -92,7 +92,6 @@
     <field name="_version_" type="plong" indexed="false" stored="false"/>
 
     <field name="metadata_content" type="text_general" stored="false" />
-    <field name="tags" type="string" stored="true" multiValued="true"/>
     <field name="directory_names" type="string" stored="true" multiValued="true"/>
     <field name="tag_names" type="string" stored="true" multiValued="true"/>
     <field name="base_path" type="descendent_path" stored="true" multiValued="false" />
@@ -101,6 +100,8 @@
     <field name="file_type" type="string" stored="true" required="true" />
     <field name="processing_datetime" type="rdate" stored="true" required="true"  />
     <field name="labels" type="strings" stored="true" />
+    <field name="small_thumb" type="binary" stored="true" indexed="false" />
+    <field name="medium_thumb" type="binary" stored="true" indexed="false" />
 
     <field name="md_gps_md_location" type="location" multiValued="false" stored="true" />
     <field name="md_gps_md_location_long_f" type="pfloat" multiValued="false" stored="true" />
